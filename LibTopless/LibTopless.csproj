@@ -8,9 +8,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\libplanet\Libplanet\Libplanet.csproj" />
-    <ProjectReference Include="..\libplanet\Libplanet.Net\Libplanet.Net.csproj" />
-    <ProjectReference Include="..\libplanet\Libplanet.RocksDBStore\Libplanet.RocksDBStore.csproj" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
-
 </Project>

@@ -1,7 +1,7 @@
 using Bencodex.Types;
 using Libplanet.Action;
 
-namespace SingularityDrives.Action;
+namespace LibTopless.Action;
 
 public abstract class PlanetAction : IAction
 {

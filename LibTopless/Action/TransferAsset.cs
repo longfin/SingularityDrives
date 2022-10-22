@@ -2,9 +2,9 @@ using Bencodex.Types;
 using Libplanet;
 using Libplanet.Action;
 using Libplanet.Assets;
-using Libplanet.Headless.Extensions;
+using LibTopless.Extensions;
 
-namespace SingularityDrives.Action;
+namespace LibTopless.Action;
 
 /// <summary>
 /// Basically, it's just a double of <see cref="Libplanet.Action.Sys.Tranfer"/>,

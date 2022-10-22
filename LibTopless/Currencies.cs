@@ -1,7 +1,7 @@
 using Libplanet;
 using Libplanet.Assets;
 
-namespace SingularityDrives;
+namespace LibTopless;
 
 public static class Currencies
 {

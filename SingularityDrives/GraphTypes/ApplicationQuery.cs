@@ -5,7 +5,8 @@ using Libplanet.Action;
 using Libplanet.Assets;
 using Libplanet.Blockchain;
 using Libplanet.Net;
-using SingularityDrives.Action;
+using LibTopless;
+using LibTopless.Action;
 
 namespace SingularityDrives.GraphTypes;
 

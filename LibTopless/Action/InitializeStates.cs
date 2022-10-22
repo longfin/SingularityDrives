@@ -2,9 +2,9 @@ using Bencodex.Types;
 using Libplanet;
 using Libplanet.Action;
 using Libplanet.Assets;
-using Libplanet.Headless.Extensions;
+using LibTopless.Extensions;
 
-namespace SingularityDrives.Action;
+namespace LibTopless.Action;
 
 [ActionType(nameof(InitializeStates))]
 public class InitializeStates : PlanetAction

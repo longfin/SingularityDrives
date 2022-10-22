@@ -2,7 +2,7 @@ using GraphQL.Server.Transports.AspNetCore;
 using Libplanet.Action;
 using Libplanet.Explorer.Interfaces;
 using Libplanet.Store;
-using SingularityDrives.Action;
+using LibTopless.Action;
 
 namespace SingularityDrives;
 

@@ -1,7 +1,8 @@
 using Bencodex.Types;
+using Libplanet;
 using Libplanet.Assets;
 
-namespace Libplanet.Headless.Extensions;
+namespace LibTopless.Extensions;
 
 public static class IValueExtensions
 {

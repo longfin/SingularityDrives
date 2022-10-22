@@ -4,7 +4,7 @@
 using Libplanet;
 using System.Runtime.Serialization;
 
-namespace SingularityDrives.Action;
+namespace LibTopless.Action;
 [Serializable]
 public class InvalidTransferSignerException : Exception, ISerializable
 {

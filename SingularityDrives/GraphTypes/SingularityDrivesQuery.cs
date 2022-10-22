@@ -1,7 +1,7 @@
 using GraphQL.Types;
 using Libplanet.Action;
 using Libplanet.Explorer.Queries;
-using SingularityDrives.Action;
+using LibTopless.Action;
 
 namespace SingularityDrives.GraphTypes;
 
