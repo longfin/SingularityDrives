@@ -2,7 +2,6 @@ using GraphQL;
 using GraphQL.Types;
 using Libplanet;
 using Libplanet.Action;
-using Libplanet.Action.Sys;
 using Libplanet.Assets;
 using Libplanet.Blockchain;
 using Libplanet.Crypto;
@@ -53,12 +52,14 @@ public class SingularityDrivesMutation : ObjectGraphType
             ),
             resolve: context =>
             {
+                string privateKeyHex = context.GetArgument<string>("privateKeyHex");
+                PrivateKey privateKey = PrivateKey.FromString(privateKeyHex);
+                Address sender = privateKey.ToAddress();
                 Address recipient = new Address(context.GetArgument<string>("recipient"));
                 string amount = context.GetArgument<string>("amount");
-                string privateKeyHex = context.GetArgument<string>("privateKeyHex");
 
-                PrivateKey privateKey = PrivateKey.FromString(privateKeyHex);
-                var action = new Transfer(
+                var action = new TransferAsset(
+                    sender,
                     recipient,
                     FungibleAssetValue.Parse(
                         Currencies.SingularityDrivesGold,
@@ -68,7 +69,7 @@ public class SingularityDrivesMutation : ObjectGraphType
 
                 return blockChain.MakeTransaction(
                     privateKey,
-                    action,
+                    new PolymorphicAction<PlanetAction>[] { action },
                     ImmutableHashSet<Address>.Empty
                         .Add(privateKey.ToAddress())
                         .Add(recipient));
