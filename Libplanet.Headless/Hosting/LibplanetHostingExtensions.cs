@@ -18,7 +18,8 @@ public static class LibplanetServicesExtensions
         this IServiceCollection services,
         Configuration configuration,
         IEnumerable<T> genesisActions,
-        IImmutableSet<Currency> nativeTokens
+        IImmutableSet<Currency> nativeTokens,
+        IActionTypeLoader actionTypeLoader
     )
         where T : IAction, new()
     {
@@ -28,6 +29,7 @@ public static class LibplanetServicesExtensions
         services.AddSingleton<IStagePolicy<T>>(
             _ => new VolatileStagePolicy<T>()
         );
+        services.AddSingleton(_ => actionTypeLoader);
         services.AddSingleton<IStore>(_ => new RocksDBStore.RocksDBStore(configuration.StorePath));
         services.AddSingleton<IStateStore>(_ => new TrieStateStore(
             new RocksDBStore.RocksDBKeyValueStore(
@@ -76,10 +78,15 @@ public static class LibplanetServicesExtensions
         if (configuration.MinerPrivateKeyString is { } minerPrivateKey)
         {
             services.AddHostedService(provider =>
-                new MinerService<T>(
-                    provider.GetRequiredService<BlockChain<T>>(),
-                    PrivateKey.FromString(minerPrivateKey)
-                )
+                {
+                    var blockChain = provider.GetRequiredService<BlockChain<T>>();
+                    // FIXME we should remove this codes after extracting `new ActionEvaluator()` from `BlockChain<T>.ctor`.
+                    blockChain.ActionEvaluator.ActionTypeLoader = actionTypeLoader;
+                    return new MinerService<T>(
+                        blockChain,
+                        PrivateKey.FromString(minerPrivateKey)
+                    );
+                }
             );
         }
 

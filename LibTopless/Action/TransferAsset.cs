@@ -3,6 +3,7 @@ using Libplanet;
 using Libplanet.Action;
 using Libplanet.Assets;
 using LibTopless.Extensions;
+using Serilog;
 
 namespace LibTopless.Action;
 
@@ -59,6 +60,10 @@ public class TransferAsset : PlanetAction
         {
             throw new InvalidTransferSignerException(context.Signer, Sender, Recipient);
         }
+
+        // For testing, see also SingularityDrives/DynamicTypeLoader.cs
+        Log.Logger.Information("Name: Lalc");
+        // Log.Logger.Information("Name: Casio");
 
         return state.TransferAsset(Sender, Recipient, Amount);
     }

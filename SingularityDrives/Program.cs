@@ -48,11 +48,12 @@ app.AddCommand(() =>
                 new InitializeStates(
                     new Dictionary<Address, FungibleAssetValue>
                     {
-                        [new Address("019101FEec7ed4f918D396827E1277DEda1e20D4")] = Currencies.SingularityDrivesGold * 1000,
+                        [new Address("0x25924579F8f1D6a0edE9aa86F9522e44EbC74C26")] = Currencies.SingularityDrivesGold * 1000,
                     }
                 ),
             },
-            ImmutableHashSet.Create(Currencies.SingularityDrivesGold)
+            ImmutableHashSet.Create(Currencies.SingularityDrivesGold),
+            new DynamicTypeLoader("fraternity", "LibTopless.dll")
         )
         .AddGraphQL(builder =>
         {
