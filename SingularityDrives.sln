@@ -9,6 +9,8 @@ Project("{0B642D9E-5BE5-47D8-9F3B-3BA235DC311B}") = "Libplanet.Headless", "Libpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibTopless", "LibTopless\LibTopless.csproj", "{CCDB70B0-63E7-470C-8D2D-DF2BF6A07828}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libplanet", "libplanet\Libplanet\Libplanet.csproj", "{9E595DA2-560C-4D17-9663-828E54F65FED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{CCDB70B0-63E7-470C-8D2D-DF2BF6A07828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCDB70B0-63E7-470C-8D2D-DF2BF6A07828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCDB70B0-63E7-470C-8D2D-DF2BF6A07828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E595DA2-560C-4D17-9663-828E54F65FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E595DA2-560C-4D17-9663-828E54F65FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E595DA2-560C-4D17-9663-828E54F65FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E595DA2-560C-4D17-9663-828E54F65FED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
